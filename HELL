@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-_hell_zip () {
+_hunter_zip () {
     if [[ $GIT_REPO ]]
     then
         echo "https://github.com/${GIT_REPO}/archive/master.zip"
@@ -13,23 +13,23 @@ _hell_zip () {
 _library () {
     if [[ $BOT_LIBRARY == "pyrogram" ]]
     then 
-        python3 -m PyrogramHell
+        python3 -m PyrogramHunter
     else
-        python3 -m TelethonHell
+        python3 -m TelethonHunter
     fi
 }
 
 _starter () {
-    local hellpath
-    hellpath="Plugins.zip"
-    echo "••• DOWNLOADING HELLBOT •••"
+    local Hunterpath
+    Hunterpath="Plugins.zip"
+    echo "••• DOWNLOADING HUNTER X  •••"
     wget -q $(_hell_zip) -O "$hellpath"
-    HELLPATH=$(zipinfo -1 "$hellpath" | grep -v "/.");
-    unzip -qq "$hellpath"
-    rm -rf "$hellpath"
-    cd $HELLPATH
+    HUNTERPATH=$(zipinfo -1 "$hellpath" | grep -v "/.");
+    unzip -qq "$hunterpath"
+    rm -rf "$hunterpath"
+    cd $HUNTERPATH
     python3 ../updater.py ../requirements.txt requirements.txt
-    echo "••• STARTING HELLBOT •••"
+    echo "••• STARTING HUNTERX  •••"
     _library
 }
 
